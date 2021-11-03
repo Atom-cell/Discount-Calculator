@@ -14,14 +14,15 @@ export default function App() {
   const [save, setSave] = React.useState(0);
   const [fp, setFp] = React.useState(0);
 
-  React.useEffect(() => {}, calculate);
-
-  const calculate = () => {
+  React.useEffect(() => {
     let disc = discount / 100;
     let final_price = price - price * disc;
     setFp(final_price);
     setSave((price * discount) / 100);
-  };
+  });
+
+  const calculate = () => {};
+
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 30 }}>Discount Calculator</Text>
