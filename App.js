@@ -24,7 +24,7 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 30 }}>Discount App</Text>
+      <Text style={{ fontSize: 30 }}>Discount Calculator</Text>
       <TextInput
         style={styles.input}
         placeholder="ENTER PRICE"
@@ -38,13 +38,13 @@ export default function App() {
         onChangeText={(discount) => setDiscount(discount)}
       />
       <Text style={styles.txt}>You Saved: {save}</Text>
-      <Text style={styles.txt}>Final Price:{fp}</Text>
+      <Text style={styles.txt}>Final Price: {fp}</Text>
       <Pressable
         title="Calculate"
         style={styles.btn}
         onPress={() => calculate()}
       >
-        <Text>CALCULATE</Text>
+        <Text style={{ fontSize: 15 }}>CALCULATE</Text>
       </Pressable>
     </View>
   );
@@ -69,10 +69,11 @@ const styles = StyleSheet.create({
   txt: {
     fontSize: 20,
     fontWeight: "bold",
-    marginVertical: 20,
+    marginVertical: 10,
   },
   btn: {
-    backgroundColor: "red",
+    marginTop: 20,
+    backgroundColor: "#00a8ff",
     padding: 20,
     borderRadius: 50,
   },
