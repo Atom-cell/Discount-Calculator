@@ -28,12 +28,14 @@ export default function App() {
       <TextInput
         style={styles.input}
         placeholder="ENTER PRICE"
+        keyboardType="phone-pad"
         value={price}
         onChangeText={(price) => setPrice(price)}
       />
       <TextInput
         style={styles.input}
         placeholder="ENTER DISCOUNT %"
+        keyboardType="phone-pad"
         value={discount}
         onChangeText={(discount) => setDiscount(discount)}
       />
@@ -60,10 +62,11 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 20,
-    backgroundColor: "#cfcfcf",
+    // backgroundColor: "#cfcfcf",
     marginVertical: 20,
     width: "100%",
     borderRadius: 50,
+    borderWidth: 1,
     fontSize: 20,
   },
   txt: {
