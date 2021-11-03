@@ -1,10 +1,27 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  Pressable,
+} from "react-native";
 
 export default function App() {
   const [price, setPrice] = React.useState(0);
   const [discount, setDiscount] = React.useState(0);
+  const [save, setSave] = React.useState(0);
+  const [fp, setFp] = React.useState(0);
+
+  React.useEffect(() => {}, calculate);
+
+  const calculate = () => {
+    let disc = discount / 100;
+    let final_price = price - price * disc;
+    setFp(final_price);
+    setSave((price * discount) / 100);
+  };
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 30 }}>Discount App</Text>
@@ -20,6 +37,15 @@ export default function App() {
         value={discount}
         onChangeText={(discount) => setDiscount(discount)}
       />
+      <Text style={styles.txt}>You Saved: {save}</Text>
+      <Text style={styles.txt}>Final Price:{fp}</Text>
+      <Pressable
+        title="Calculate"
+        style={styles.btn}
+        onPress={() => calculate()}
+      >
+        <Text>CALCULATE</Text>
+      </Pressable>
     </View>
   );
 }
@@ -39,5 +65,15 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 50,
     fontSize: 20,
+  },
+  txt: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginVertical: 20,
+  },
+  btn: {
+    backgroundColor: "red",
+    padding: 20,
+    borderRadius: 50,
   },
 });
